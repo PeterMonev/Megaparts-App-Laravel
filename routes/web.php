@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -24,14 +25,20 @@ Route::get('/home', function () {
     return view('home');
 });
 
+// Home Products
+Route::get('/api/products', [HomeProductController::class, 'apiProducts']);
+
+
 Auth::routes();
 
-// Products
+
+// Admin Products
 Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('products', ProductController::class);
 });
 
-// Users
+
+// Admin Users
 Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('users', UserController::class);
 });

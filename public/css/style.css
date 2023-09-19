@@ -663,6 +663,15 @@ width: 10%;
 #ariticle__specialOffers__offer {
   color: #19242d;
   font-size: 14.608px;
+
+
+}
+
+#ariticle__specialOffers__offer img {
+  height: 100%;
+  width: 100%;
+  border-radius: 15.651px;
+  border: 2px solid #008AEE;
 }
 
 .div__offer__img {
@@ -856,12 +865,22 @@ width: 10%;
   width: 30% !important;
   flex-direction: column;
   align-items: flex-start;
+
+
 }
 
-.div__lastOffer__img {
+#div__lastOffer__img {
   border-radius: 15.651px;
   width: 100%;
   margin-right: 0 !important;
+
+}
+
+.div__lastOffer__img img {
+   width: 100%;
+   height: 100%;
+   border-radius: 15.651px;
+   border: 2px solid #5FB865 !important;
 }
 
 #div__lastOffers__description {
