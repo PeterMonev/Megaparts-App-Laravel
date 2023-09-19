@@ -1,11 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Edit Product')
+@section('title', 'Edit User')
 
 @section('content_header')
-    <h1>Edit Product</h1>
+    <h1>Edit User</h1>
 @stop
-
 
 @section('content')
 <div class="container">
@@ -21,24 +20,19 @@
 
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name) }}" required>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Password (leave blank if not changing)</label>
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="role">Role</label>
                             <select name="role" id="role" class="form-control">
-                                <option value="user" {{ (old('role', $user->role) == 'user') ? 'selected' : '' }}>User</option>
-                                <option value="admin" {{ (old('role', $user->role) == 'admin') ? 'selected' : '' }}>Admin</option>
+                                <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                             </select>
                         </div>
 

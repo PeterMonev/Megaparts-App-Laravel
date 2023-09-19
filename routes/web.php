@@ -17,7 +17,11 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Auth::routes();
@@ -29,6 +33,7 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('products', ProductController::class);
 });
 
-Route::middleware(['auth', 'admib'])->group(function() {
+// Users
+Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('users', UserController::class);
 });

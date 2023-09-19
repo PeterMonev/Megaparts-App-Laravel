@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <!-- Include AdminLTE CSS, JS, and other necessary assets here -->
+    
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
