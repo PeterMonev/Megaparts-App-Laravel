@@ -24,11 +24,6 @@ ScrollTrigger.create({
     onLeaveBack: unsetSticky
 });
 
-
-$(document).ready(function () {
-  console.log('yes');
-})
-
 $(document).ready(function () {
   $("#navLower__ul__buttons .carousel-li button").on("click", function () {
     const buttonColor = $(this).css("background-color");

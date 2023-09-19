@@ -40,9 +40,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-   
-
-
+    
     </head>
 
     <body class="antialiased">
@@ -1337,5 +1335,6 @@
         </div>
 
         <script src="{{ asset('js/animation.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
