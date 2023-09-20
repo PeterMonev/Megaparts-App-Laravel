@@ -23,6 +23,10 @@ $.ajax({
                             <p>Кат. №: s_167232784</p>
                              <p>${product.price} лв.</p>
                          </div>
+                         <div class="d-flex justify-content-between div__btn__article">
+                         <button class="details-button btn-success buttonView" data-id="${product.id}">Подробности</button>
+                         <button class="add-to-cart-button btn-primary buttonAddToCart " data-id="${product.id}">Добави</button>
+                         </div>
                     </article>
                      `;
 
@@ -61,15 +65,17 @@ const $carousel = $('#div__lastOffers__offers').flickity({
           data.forEach((product) => {
               let productNode = `
               <article id="ariticle__lastOffers__offer" class="carousel-cell">
-                         <div class="div__lastOffer__img">
-                              <img src="${product.image_url}" alt="product">
-                           </div>
-                           <p id="p__specialOffers__description">${product.description}</p>
-                           <div id="div__specialOffers__categoryAndPrice" class="d-flex justify-content-between">
-                              <p>Кат. №: s_167232784</p>
-                               <p>${product.price} лв.</p>
-                           </div>
-                      </article>
+              <div class="div__lastOffer__img">
+                  <img src="${product.image_url}" alt="product">
+              </div>
+              <div id="div__lastOffers__description" class="d-flex justify-content-between">
+                  <p><span>КУПУВАМ</span> ${product.description}</p>
+              </div>
+              <div class="d-flex justify-content-between w-100">
+              <button class="details-button btn-success buttonView" data-id="${product.id}">Подробности</button>
+              <button class="add-to-cart-button btn-primary buttonAddToCart " data-id="${product.id}">Добави</button>
+              </div>
+              </article>
                        `;
   
                        $flickitySlider.append(productNode);

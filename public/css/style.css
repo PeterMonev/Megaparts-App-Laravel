@@ -663,8 +663,6 @@ width: 10%;
 #ariticle__specialOffers__offer {
   color: #19242d;
   font-size: 14.608px;
-
-
 }
 
 #ariticle__specialOffers__offer img {
@@ -865,8 +863,11 @@ width: 10%;
   width: 30% !important;
   flex-direction: column;
   align-items: flex-start;
+}
 
-
+.buttonView, .buttonAddToCart {
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 #div__lastOffer__img {
@@ -874,6 +875,10 @@ width: 10%;
   width: 100%;
   margin-right: 0 !important;
 
+}
+
+.div__btn__article {
+  margin-top: -12px;
 }
 
 .div__lastOffer__img img {
