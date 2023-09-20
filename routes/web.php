@@ -37,6 +37,8 @@ Auth::routes();
 // Products Cart
 Route::post('/cart/add', 'CartController@add')->name('cart.add');
 Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
 
 // Admin Products
 Route::middleware(['auth', 'admin'])->group(function() {

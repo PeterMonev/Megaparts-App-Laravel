@@ -86,7 +86,7 @@ async function fetchLastOffers() {
 
                 if (isUserLoggedIn) {
                     articleBtns = ` 
-                    <div class="d-flex justify-content-between div__btn__article">
+                    <div class="d-flex justify-content-between w-100 div__btn__article">
                     <button class="details-button btn-success buttonView" data-id="${product.id}">Подробности</button>
                     <button class="add-to-cart-button btn-primary buttonAddToCart " data-id="${product.id}">Добави</button>
                     </div>
@@ -126,7 +126,6 @@ fetchLastOffers();
 fetchProducts();
 
 // Add to Cart Functionality
-
 $(document).on("click", ".buttonAddToCart", function () {
     const productId = $(this).data("id");
     addToCart(productId);
@@ -149,3 +148,43 @@ function addToCart(productId) {
         },
     });
 }
+
+// Details View functionality
+$(document).on('click', '.details-button', function() {
+    const productId = $(this).data('id');
+
+    fetch(`/product/${productId}`)
+        .then(response => response.json())
+        .then(product => {
+            const modalContent = `
+                <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="productDetailsModalLabel">${product.name}</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="${product.image_url}" alt="${product.name}" class="img-fluid mb-3">
+                                <p>${product.description}</p>
+                                <p>Price: $${product.price}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            if(!$('#productDetailsModal').length) {
+                $('body').append(modalContent);
+            }
+
+            const modal = new bootstrap.Modal(document.getElementById('productDetailsModal'));
+            modal.show();
+        })
+        .catch(error => {
+            console.error("Error fetching product details:", error);
+        });
+});
