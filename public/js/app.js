@@ -132,22 +132,27 @@ $(document).on("click", ".buttonAddToCart", function () {
 });
 
 function addToCart(productId) {
+ 
     $.ajax({
         type: "POST",
         url: "/cart/add",
         data: {
             product_id: productId,
-            _token: $('meta[name="csrf-token"]').attr("content"), 
+            _token: $('meta[name="csrf-token"]').attr('content') 
         },
-        success: function (response) {
-            console.log(response);
-            alert(response.message);
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        error: function (error) {
+        success: function(response) {
+            alert(response.message); 
+          
+        },
+        error: function(error) {
             console.error("Error adding to cart:", error);
-        },
+        }
     });
 }
+
 
 // Details View functionality
 $(document).on('click', '.details-button', function() {

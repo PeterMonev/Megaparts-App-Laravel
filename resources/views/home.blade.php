@@ -47,22 +47,6 @@
 </head>
 
 <body class="antialiased">
-
-    {{-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div> --}}
     <!-- HEADER -->
 
     <header class="container col-12 p-0">
@@ -100,7 +84,7 @@
                                         d="M6.54209 11.55C6.54209 11.0944 6.91146 10.725 7.36709 10.725H13.4171C13.8727 10.725 14.2421 11.0944 14.2421 11.55C14.2421 12.0056 13.8727 12.375 13.4171 12.375H7.36709C6.91146 12.375 6.54209 12.0056 6.54209 11.55Z"
                                         fill="white" />
                                 </svg></a></li>
-                        <li><a href=""><svg xmlns="http://www.w3.org/2000/svg" width="23" height="24"
+                        <li><a href="{{ route('cart.index')}}"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="24"
                                     viewBox="0 0 23 24" fill="none">
                                     <path
                                         d="M9.45746 0.88208C8.34104 0.88208 7.43601 1.78711 7.43601 2.90353C7.43601 4.01995 8.34104 4.92499 9.45746 4.92499H14.0779C15.1944 4.92499 16.0994 4.01995 16.0994 2.90353C16.0994 1.78711 15.1944 0.88208 14.0779 0.88208H9.45746Z"
@@ -123,7 +107,10 @@
                                     <path
                                         d="M12.634 13.2996C12.634 12.8211 12.2461 12.4332 11.7677 12.4332C11.2892 12.4332 10.9014 12.8211 10.9014 13.2996V17.9201C10.9014 18.3985 11.2892 18.7864 11.7677 18.7864C12.2461 18.7864 12.634 18.3985 12.634 17.9201V13.2996Z"
                                         fill="white" />
-                                </svg></a></li>
+                                </svg>
+                                @if(session('cart') && count(session('cart')) > 0)
+                                <span class="cart-badge">{{ count(session('cart')) }}</span>
+                            @endif</a></li>
                         <li><a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="22"
                                     viewBox="0 0 24 22" fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd"

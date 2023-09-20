@@ -315,14 +315,12 @@ return [
             'text'        => 'Products',
             'url'         => '/products',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
         [
             'text'        => 'Users',
             'url'         => '/users',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
       

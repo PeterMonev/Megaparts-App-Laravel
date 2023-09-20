@@ -35,9 +35,11 @@ Route::get('/is-logged-in', [UserController::class, 'isLoggedIn'])->name('user.l
 Auth::routes();
 
 // Products Cart
-Route::post('/cart/add', 'CartController@add')->name('cart.add');
-Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart',  [CartController::class, 'index'])->name('cart.index');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
 
 
 // Admin Products
