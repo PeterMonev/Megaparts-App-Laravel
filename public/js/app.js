@@ -138,7 +138,7 @@ function addToCart(productId) {
         url: "/cart/add",
         data: {
             product_id: productId,
-            _token: $('meta[name="csrf-token"]').attr("content"), // Това добавя CSRF токена към заявката
+            _token: $('meta[name="csrf-token"]').attr("content"), 
         },
         success: function (response) {
             console.log(response);

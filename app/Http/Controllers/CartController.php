@@ -13,7 +13,7 @@ class CartController extends Controller
     dd(    $productId );
     dd(    $product );
     if(!$product){
-        return response()->json(['message' => 'Product not found.'], 404);
+        return response()->json(['message' => 'Продуктът не е намерен.'], 404);
     }
 
     $cart = session()->get('cart', []);
