@@ -39,7 +39,7 @@ npm run dev
 
 2. **User**: Users can login and register an have access to the frontend of the application and can view products details, add them to the shopping cart.
  
- * Admin Account is `email: marry@abv.bg` `password: 12345678` or create your new account.
+ * User Account is `email: marry@abv.bg` `password: 12345678` or create your new account.
 
 3. **Admin**: Аdmin has access to the admin panel, which provides ability to create, delete and modify both products and users.
 
