@@ -31,7 +31,6 @@ class CartController extends Controller
     }
 
     session()->put('cart', $cart);
-
     return response()->json(['message' => 'Продукът беше добавен успешно в количката.']);
 }
 
