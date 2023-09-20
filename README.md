@@ -37,7 +37,7 @@ npm run dev
 
 1. **Guest**: Guest have access to the frontend of the application.
 
-2. **User**: Users can login and register an have access to the frontend of the application and can view products details, add them to the shopping cart.
+2. **User**: Users can login and register an have access to the frontend of the application and can view products details, add them to the shopping cart and remove product from cart.
  
  * User Account is `email: marry@abv.bg` `password: 12345678` or create your new account.
 
