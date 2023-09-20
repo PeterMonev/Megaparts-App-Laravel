@@ -81,4 +81,9 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index')->with('success', 'Потребителят е успешно изтрит.');
     }
+
+    public function isLoggedIn() {
+        return response()->json(['is_logged_in' => auth()->check()]);
+    }
+    
 }
