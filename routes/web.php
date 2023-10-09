@@ -52,3 +52,7 @@ Route::middleware(['auth', 'admin'])->group(function() {
 Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('users', UserController::class);
 });
+
+Route::get('/email-preview', function() {
+    return new \App\Mail\UsersNotifacation();
+});
