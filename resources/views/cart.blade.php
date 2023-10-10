@@ -5,7 +5,7 @@
 <h2 class="mb-4">Вашата Количка</h2>
 
 @if(session('cart') && count(session('cart')) > 0)
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped h-100">
     <thead>
         <tr>
             <th>Изображение</th>
