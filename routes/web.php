@@ -32,27 +32,26 @@ Route::get('/api/products', [HomeProductController::class, 'apiProducts']);
 // Home User
 Route::get('/is-logged-in', [UserController::class, 'isLoggedIn'])->name('user.loggedin');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-// Products Cart
-Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-Route::get('/cart',  [CartController::class, 'index'])->name('cart.index');
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Cart and Product routes
+    Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
+    // Admin routes
+    Route::middleware(['admin'])->group(function() {
+        Route::resource('products', ProductController::class);
+        Route::resource('users', UserController::class);
+    });
+});
 
-
-// Admin Products
+// Secure the Email Preview
 Route::middleware(['auth', 'admin'])->group(function() {
-    Route::resource('products', ProductController::class);
+    Route::get('/email-preview', function() {
+        return new \App\Mail\UsersNotifacation();
+    });
 });
 
-
-// Admin Users
-Route::middleware(['auth', 'admin'])->group(function() {
-    Route::resource('users', UserController::class);
-});
-
-Route::get('/email-preview', function() {
-    return new \App\Mail\UsersNotifacation();
-});

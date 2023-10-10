@@ -13,13 +13,13 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-
-     if(auth()->user() && auth()->user()->role != 'admin'){
-        return redirect('/');
-     }
-
-        return $next($request);
+        if (auth()->check() && auth()->user()->role == 'admin') {
+            return $next($request);
+        }
+    
+        return redirect('home')->withErrors('Няма те достъп до тази страница.');
     }
+    
 }
